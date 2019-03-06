@@ -47,7 +47,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <input type="submit" id="login_submit" class='btn btn-jupyter' value='Sign In' tabindex="3" />
             <div style="padding-top: 25px;">
                 <p>Don't have an user? <a href="/signup">Signup!</a></p>
+                {% if two_factor_auth %}
                 <p>Have Two Factor Authentication configured? <a href="/2fa">Sign In here!</a></p>
+                {% endif %}
             </div>
         </div>
     </form>
