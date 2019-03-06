@@ -94,9 +94,10 @@ async def test_handlers(app):
     auth = NativeAuthenticator(db=app.db)
     handlers = auth.get_handlers(app)
     assert handlers[0][0] == '/login'
-    assert handlers[1][0] == '/signup'
-    assert handlers[2][0] == '/authorize'
-    assert handlers[4][0] == '/change-password'
+    assert handlers[1][0] == '/2fa'
+    assert handlers[2][0] == '/signup'
+    assert handlers[3][0] == '/authorize'
+    assert handlers[5][0] == '/change-password'
 
 
 async def test_add_new_attempt_of_login(tmpcwd, app):
