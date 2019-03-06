@@ -10,7 +10,8 @@ from tornado import gen
 from traitlets import Bool, Integer, Unicode
 
 from .handlers import (AuthorizationHandler, ChangeAuthorizationHandler,
-                       ChangePasswordHandler, LoginHandler, SignUpHandler)
+                       ChangePasswordHandler, LoginHandler, Login2FAHandler,
+                       SignUpHandler)
 from .orm import UserInfo
 
 
@@ -205,6 +206,7 @@ class NativeAuthenticator(Authenticator):
     def get_handlers(self, app):
         native_handlers = [
             (r'/login', LoginHandler),
+            (r'/2fa', Login2FAHandler),
             (r'/signup', SignUpHandler),
             (r'/authorize', AuthorizationHandler),
             (r'/authorize/([^/]*)', ChangeAuthorizationHandler),

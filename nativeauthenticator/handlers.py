@@ -150,3 +150,21 @@ class LoginHandler(LoginHandler, LocalBase):
                 {'next': self.get_argument('next', '')},
             ),
         )
+
+
+class Login2FAHandler(LoginHandler, LocalBase):
+
+    def _render(self, login_error=None, username=None):
+        self._register_template_path()
+        return self.render_template(
+            '2fa-login.html',
+            next=url_escape(self.get_argument('next', default='')),
+            username=username,
+            login_error=login_error,
+            custom_html=self.authenticator.custom_html,
+            login_url=self.settings['login_url'],
+            authenticator_login_url=url_concat(
+                self.authenticator.login_url(self.hub.base_url),
+                {'next': self.get_argument('next', '')},
+            ),
+        )

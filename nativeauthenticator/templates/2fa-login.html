@@ -44,10 +44,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     </button>
                 </span>
             </div>
+            <p></p>
+            <label for="2fa_input">Second auth factor:</label>
+            <input id="2fa_input" type="text" autocapitalize="off" autocorrect="off" class="form-control" name="2fa" tabindex="1" autofocus="autofocus" />
             <input type="submit" id="login_submit" class='btn btn-jupyter' value='Sign In' tabindex="3" />
             <div style="padding-top: 25px;">
                 <p>Don't have an user? <a href="/signup">Signup!</a></p>
-                <p>Have Two Factor Authentication configured? <a href="/2fa">Sign In here!</a></p>
+                <p>Don't have Two Factor Authentication configured? <a href="/login">Sign In here!</a></p>
             </div>
         </div>
     </form>
